@@ -10,10 +10,20 @@ module.exports = {
 		rules: [
 			{
 				test: /\.tsx?$/,
-				loader: 'ts-loader',
+				loaders: [
+					'babel-loader',
+					'ts-loader',
+				],
 				exclude: /node_modules/,
 			},
-		]
+			{
+				test: /\.(jsx?)$/,
+				loaders: [
+					'babel',
+				],
+				exclude: /node_modules/,
+			}
+		],
 	},
 	resolve: {
 		extensions: [".tsx", ".ts", ".js"]

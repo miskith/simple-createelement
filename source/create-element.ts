@@ -1,29 +1,27 @@
-import { SimpleElementOptionsInterface } from './interface/simple-element-options.interface';
+import { SimpleElementOptionsInterface, SimpleElementStyle } from './interface/simple-element-options.interface';
 
-import { SimpleElementOptionsModel } from './model/simple-element-options.model';
 
-export default class SimpleCreateElement {
+export default class SimpleCreateElement
+{
 	private DOMElement: HTMLElement = null;
-	private elementOptions: SimpleElementOptionsModel = null;
 
-	constructor(private tagName: string, elementOptions?: SimpleElementOptionsInterface)
+	constructor(private tagName: string, private elementOptions: SimpleElementOptionsInterface = {})
 	{
-		this.elementOptions = new SimpleElementOptionsModel(elementOptions || {});
-
 		this.createElement();
 		this.setElementParameters();
 		this.setElementStyles();
-		this.appendChildren();
+
+		if (this.elementOptions.children && this.elementOptions.children.length)
+		{
+			this.elementOptions.children.forEach((item)=>{
+				this.appendChildren(item);
+			});
+		}
 	}
 
 	public getTagName():string
 	{
 		return this.tagName;
-	}
-
-	public getElementOptions():SimpleElementOptionsModel
-	{
-		return this.elementOptions;
 	}
 
 	private createElement():void
@@ -39,10 +37,15 @@ export default class SimpleCreateElement {
 
 	private setElementParameters():void
 	{
-		['className', 'innerText', 'innerHTML'].forEach(item => {
-			let value = this.getElementOptions()[item];
-			if (value!==null)
-				this.getDOMElement()[item] = value;
+		['id', 'className', 'innerText', 'innerHTML'].forEach(itemKey => {
+			let value = this.elementOptions[itemKey];
+			if (value)
+			{
+				if (itemKey==='className' && (typeof value)!=='string')
+					this.getDOMElement()[itemKey] = value.join(' ');
+				else
+					this.getDOMElement()[itemKey] = value;
+			}
 		});
 
 		return;
@@ -50,27 +53,11 @@ export default class SimpleCreateElement {
 
 	private setElementStyles():void
 	{
-		const styles = this.getElementOptions().styles;
+		const styleList = this.elementOptions.styles;
 
-		if (styles!==null)
-		{
-			styles.forEach(style => {
-				this.getDOMElement().style[style.name] = style.value;
-			});
-		}
-
-		return;
-	}
-
-	private appendChildren():void
-	{
-		const children = this.getElementOptions().children;
-		if (children!==null)
-		{
-			children.forEach(child => {
-				this.getDOMElement().appendChild(child);
-			});
-		}
+		if (styleList)
+			for (let styleType of Object.keys(styleList))
+				this.getDOMElement().style[styleType] = styleList[styleType];
 
 		return;
 	}
@@ -82,6 +69,13 @@ export default class SimpleCreateElement {
 		return;
 	}
 
+	public appendChildren(element: SimpleCreateElement):void
+	{
+		this.getDOMElement().appendChild(element.getDOMElement());
+
+		return;
+	}
+
 	public getDOMElement():HTMLElement
 	{
 		return this.DOMElement;
@@ -89,3 +83,4 @@ export default class SimpleCreateElement {
 
 }
 
+console.log(SimpleCreateElement);

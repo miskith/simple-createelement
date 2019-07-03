@@ -37,7 +37,7 @@ export default class SimpleCreateElement
 
 	private setElementParameters():void
 	{
-		['id', 'className', 'innerText', 'innerHTML'].forEach(itemKey => {
+		['id', 'className', 'innerText', 'innerHTML', 'src', 'alt', 'title', 'type', 'href', 'target'].forEach(itemKey => {
 			let value = this.elementOptions[itemKey];
 			if (value)
 			{

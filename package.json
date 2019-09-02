@@ -1,36 +1,36 @@
 {
-  "name": "simple-createelement",
-  "version": "1.0.6",
-  "description": "Library for simple creation of element",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/miskith/simple-createelement.git"
-  },
-  "author": "David Myška",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/miskith/simple-createelement/issues"
-  },
-  "homepage": "https://github.com/miskith/simple-createelement#readme",
-  "dependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/polyfill": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/runtime": "^7.4.5",
-    "babel-loader": "^8.0.6",
-    "ts-loader": "^6.0.4",
-    "typescript": "^3.5.2",
-    "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2"
-  },
-  "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.4.4"
-  }
+	"name": "simple-createelement",
+	"version": "1.0.7",
+	"description": "Library for simple creation of element",
+	"main": "source/create-element.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "webpack-dev-server --mode development",
+		"build": "webpack --mode production"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/miskith/simple-createelement.git"
+	},
+	"author": "David Myška",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/miskith/simple-createelement/issues"
+	},
+	"homepage": "https://github.com/miskith/simple-createelement#readme",
+	"dependencies": {
+		"@babel/core": "^7.5.5",
+		"@babel/polyfill": "^7.4.4",
+		"@babel/preset-env": "^7.5.5",
+		"@babel/runtime": "^7.5.5",
+		"babel-loader": "^8.0.6",
+		"ts-loader": "^6.0.4",
+		"typescript": "^3.6.2",
+		"webpack": "^4.39.3",
+		"webpack-cli": "^3.3.7",
+		"webpack-dev-server": "^3.8.0"
+	},
+	"devDependencies": {
+		"@babel/plugin-transform-runtime": "^7.5.5"
+	}
 }

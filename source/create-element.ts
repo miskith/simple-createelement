@@ -1,4 +1,4 @@
-import { SimpleElementOptionsInterface, SimpleElementStyle } from './interface/simple-element-options.interface';
+import { SimpleElementOptionsInterface } from './interface/simple-element-options.interface';
 
 
 export class SimpleCreateElement

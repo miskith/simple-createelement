@@ -1,9 +1,9 @@
 {
 	"name": "simple-createelement",
-	"version": "1.0.9",
+	"version": "1.0.10",
 	"description": "Library for simple creation of element",
 	"main": "dist/create-element.js",
-	"types": "source/*.d.ts",
+	"types": "source/create-element.d.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "webpack-dev-server --mode development",

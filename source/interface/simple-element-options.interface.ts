@@ -1,4 +1,4 @@
-import SimpleCreateElement from "../create-element";
+import { SimpleCreateElement } from "../create-element";
 
 export type SimpleElementStyle = {[key: string]: string};
 

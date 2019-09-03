@@ -1,7 +1,7 @@
 import { SimpleElementOptionsInterface } from './interface/simple-element-options.interface';
 
 
-export default class SimpleCreateElement
+export class SimpleCreateElement
 {
 	private DOMElement: HTMLElement = null;
 

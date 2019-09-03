@@ -3,9 +3,9 @@ import { SimpleElementOptionsInterface } from './interface/simple-element-option
 
 export class SimpleCreateElement
 {
-	private DOMElement: HTMLElement = null;
+	public DOMElement: HTMLElement = null;
 
-	constructor(private tagName: string, private elementOptions: SimpleElementOptionsInterface = {})
+	constructor(public tagName: string, private elementOptions: SimpleElementOptionsInterface = {})
 	{
 		this.createElement();
 		this.setElementParameters();
@@ -19,15 +19,10 @@ export class SimpleCreateElement
 		}
 	}
 
-	public getTagName():string
-	{
-		return this.tagName;
-	}
-
 	private createElement():void
 	{
 		try {
-			this.DOMElement = document.createElement(this.getTagName());
+			this.DOMElement = document.createElement(this.tagName);
 		} catch (exception) {
 			console.error('Element could not be created. Invalid name.', exception);
 		}
@@ -42,9 +37,9 @@ export class SimpleCreateElement
 			if (value)
 			{
 				if (itemKey==='className' && (typeof value)!=='string')
-					this.getDOMElement()[itemKey] = value.join(' ');
+					this.DOMElement[itemKey] = value.join(' ');
 				else
-					this.getDOMElement()[itemKey] = value;
+					this.DOMElement[itemKey] = value;
 			}
 		});
 
@@ -57,30 +52,24 @@ export class SimpleCreateElement
 
 		if (styleList)
 			for (let styleType of Object.keys(styleList))
-				this.getDOMElement().style[styleType] = styleList[styleType];
+				this.DOMElement.style[styleType] = styleList[styleType];
 
 		return;
 	}
 
 	public appendTo(parent: HTMLElement):void
 	{
-		parent.appendChild(this.getDOMElement());
+		parent.appendChild(this.DOMElement);
 
 		return;
 	}
 
-	public appendChildren(element: SimpleCreateElement):void
+	public appendChildren(element: HTMLElement):void
 	{
-		this.getDOMElement().appendChild(element.getDOMElement());
+		this.DOMElement.appendChild(element);
 
 		return;
-	}
-
-	public getDOMElement():HTMLElement
-	{
-		return this.DOMElement;
 	}
 
 }
 
-console.log(SimpleCreateElement);

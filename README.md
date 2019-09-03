@@ -17,7 +17,7 @@ export interface SimpleElementOptionsInterface
 	innerText?: string;
 	innerHTML?: string;
 	styles?: SimpleElementStyle;
-	children?: SimpleCreateElement[];
+	children?: HTMLElement[];
 	src?: string;
 	alt?: string;
 	title?: string;

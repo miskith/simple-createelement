@@ -1,14 +1,12 @@
 import { SimpleElementOptionsInterface } from './interface/simple-element-options.interface';
 export declare class SimpleCreateElement {
-    private tagName;
+    tagName: string;
     private elementOptions;
-    private DOMElement;
+    DOMElement: HTMLElement;
     constructor(tagName: string, elementOptions?: SimpleElementOptionsInterface);
-    getTagName(): string;
     private createElement;
     private setElementParameters;
     private setElementStyles;
     appendTo(parent: HTMLElement): void;
-    appendChildren(element: SimpleCreateElement): void;
-    getDOMElement(): HTMLElement;
+    appendChildren(element: HTMLElement): void;
 }

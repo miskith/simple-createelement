@@ -13,6 +13,6 @@ export interface SimpleElementOptionsInterface {
     title?: string;
     type?: string;
     href?: string;
-    srcset?: string[];
+    srcset?: string[] | string;
     target?: '_blank' | '_self' | '_parent' | '_top' | string;
 }

@@ -1,6 +1,6 @@
 {
 	"name": "simple-createelement",
-	"version": "1.0.12",
+	"version": "1.0.13",
 	"description": "Library for simple creation of element",
 	"main": "dist/create-element.js",
 	"types": "source/create-element.d.ts",

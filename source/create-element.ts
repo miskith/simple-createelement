@@ -37,7 +37,7 @@ export class SimpleCreateElement
 			if (value)
 			{
 				if (itemKey==='srcset')
-					this.DOMElement[itemKey] = value.join(', ');
+					this.DOMElement[itemKey] = ((typeof value)!=='string' ? value : value.join(', '));
 				else if (itemKey==='className' && (typeof value)!=='string')
 					this.DOMElement[itemKey] = value.join(' ');
 				else
